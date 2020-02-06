@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>试前准备</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
+
+    <style>
+        .switch {
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            position: relative;
+            width: 52px;
+            height: 32px;
+            outline: none !important;
+            border-radius: 16px;
+            border: 1px;
+            box-sizing: border-box;
+            background-color: #DFDFDF;
+            transition: background-color .1s, border .1s;
+        }
+
+        .switch::before {
+            content: " ";
+            position: absolute;
+            width: 52px;
+            height: 32px;
+            border: 1px solid #DFDFDF;
+            border-radius: 16px;
+            background-color: #FFFFFF;
+            transition: transform .35s cubic-bezier(0.45, 1, 0.4, 1);
+        }
+
+        .switch::after {
+            content: " ";
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            width: 30px;
+            height: 30px;
+            border-radius: 15px;
+            background-color: #FFFFFF;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+            transition: transform .35s cubic-bezier(0.4, 0.4, 0.25, 1.35);
+        }
+
+        .switch:checked {
+            border-color: #1AAD19;
+            background-color: #1AAD19;
+        }
+
+        .switch:checked::before {
+            transform: scale(0);
+        }
+
+        .switch:checked::after {
+            transform: translateX(20px);
+        }
+
+        tr {
+            font-size: 15px;
+        }
+
+        .valve-text {
+            vertical-align: middle;
+        }
+
+        .page {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span
+                        class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a
+                    class="navbar-brand" href="#">航天六院165所四室</a>
+            </div>
+            <div>
+                <p class="navbar-text">满流台故障反馈系统</p>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li> <p class="navbar-text">试前准备</p></li>
+            </ul>
+        </nav>
+        <div class="row clearfix">
+            <div class="col-md-6 column">
+                <div class="list-group">
+                    <div class="list-group-item active">阀门状态监测</div>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td style="vertical-align: middle;"><span>点火酒精总供应阀门</span></td>
+                                <td>
+                                    <div><input class="switch" type="checkbox" /></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: middle;"><span>两路吹除箱阀门</span></td
+                                    style="vertical-align: middle;">
+                                <td><input class="switch" type="checkbox" /></td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: middle;"><span>发生器四路吹除阀门</span></td
+                                    style="vertical-align: middle;">
+                                <td><input class="switch" type="checkbox" /></td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: middle;"><span>冷却水系统阀门</span></td
+                                    style="vertical-align: middle;">
+                                <td><input class="switch" type="checkbox" /></td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: middle;"><span>软化水流量检测</span></td
+                                    style="vertical-align: middle;">
+                                <td><input class="switch" type="checkbox" /></td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: middle;"><span>冷却水流量检测</span></td
+                                    style="vertical-align: middle;">
+                                <td><input class="switch" type="checkbox" /></td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: middle;"><span>点火酒精增压阀门</span></td
+                                    style="vertical-align: middle;">
+                                <td><input class="switch" type="checkbox" /></td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: middle;"><span>点火酒精总供应阀门</span></td
+                                    style="vertical-align: middle;">
+                                <td><input class="switch" type="checkbox" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-6 column">
+                <div class="list-group">
+                    <div class="list-group-item active">冷却水参数设置</div>
+                    <div class="list-group-item">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">&nbsp;冷却水水位</span>
+                            <input type="text" class="form-control" placeholder="冷却水水位" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">&nbsp;&nbsp;水流速度&nbsp;&nbsp;</span>
+                            <input type="text" class="form-control" placeholder="水流速度" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                </div>
+                <div class="list-group">
+                    <div class="list-group-item active">报警参数选择</div>
+                    <div class="list-group-item">
+                        <div class="input-group">
+                            <label class="input-group-btn">
+                                <button type="button" class="btn btn-default" aria-label="Left Align" disabled>
+                                    <span class="glyphicon glyphicon glyphicon-file" aria-hidden="true"></span>
+                                </button>
+                            </label>
+                            <input id='location' class="form-control" disabled>
+                            <label class="input-group-btn">
+                                <input type="button" id="i-check" value="浏览文件" class="btn btn-primary"
+                                    onclick="$('#i-file').click();">
+                            </label>
+                            <label class="input-group-btn">
+                                <input type="button" id="i-check" value="上传" class="btn btn-primary"
+                                    onclick="$('#i-file').click();">
+                            </label>
+                        </div>
+                        <input type="file" name="file" id='i-file' accept=".xls, .xlsx"
+                            onchange="$('#location').val($('#i-file').val());" style="display: none">
+                    </div>
+                    <div class="list-group-item">
+                        <div class="input-group">
+                            <label class="input-group-btn">
+                                <button type="button" class="btn btn-default" aria-label="Left Align" disabled>
+                                    <span class="glyphicon glyphicon glyphicon-file" aria-hidden="true"></span>
+                                </button>
+                            </label>
+                            <input id='location' class="form-control" disabled>
+                            <label class="input-group-btn">
+                                <input type="button" id="i-check" value="浏览文件" class="btn btn-primary"
+                                    onclick="$('#i-file').click();">
+                            </label>
+                            <label class="input-group-btn">
+                                <input type="button" id="i-check" value="上传" class="btn btn-primary"
+                                    onclick="$('#i-file').click();">
+                            </label>
+                        </div>
+                        <input type="file" name="file" id='i-file' accept=".xls, .xlsx"
+                            onchange="$('#location').val($('#i-file').val());" style="display: none">
+                    </div>
+                    <div class="list-group-item">
+                        <div class="input-group">
+                            <label class="input-group-btn">
+                                <button type="button" class="btn btn-default" aria-label="Left Align" disabled>
+                                    <span class="glyphicon glyphicon glyphicon-file" aria-hidden="true"></span>
+                                </button>
+                            </label>
+                            <input id='location' class="form-control" disabled>
+                            <label class="input-group-btn">
+                                <input type="button" id="i-check" value="浏览文件" class="btn btn-primary"
+                                    onclick="$('#i-file').click();">
+                            </label>
+                            <label class="input-group-btn">
+                                <input type="button" id="i-check" value="上传" class="btn btn-primary"
+                                    onclick="$('#i-file').click();">
+                            </label>
+                        </div>
+                        <input type="file" name="file" id='i-file' accept=".xls, .xlsx"
+                            onchange="$('#location').val($('#i-file').val());" style="display: none">
+                    </div>
+                    <div class="list-group-item">
+                        <div class="input-group">
+                            <label class="input-group-btn">
+                                <button type="button" class="btn btn-default" aria-label="Left Align" disabled>
+                                    <span class="glyphicon glyphicon glyphicon-file" aria-hidden="true"></span>
+                                </button>
+                            </label>
+                            <input id='location' class="form-control" disabled>
+                            <label class="input-group-btn">
+                                <input type="button" id="i-check" value="浏览文件" class="btn btn-primary"
+                                    onclick="$('#i-file').click();">
+                            </label>
+                            <label class="input-group-btn">
+                                <input type="button" id="i-check" value="上传" class="btn btn-primary"
+                                    onclick="$('#i-file').click();">
+                            </label>
+                        </div>
+                        <input type="file" name="file" id='i-file' accept=".xls, .xlsx"
+                            onchange="$('#location').val($('#i-file').val());" style="display: none">
+                    </div>
+                </div>
+                <div class="page">
+                    <a type="button" class="btn btn-default" href="diagnosis.html">
+                        <span>下一页</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
